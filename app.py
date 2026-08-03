@@ -26,31 +26,67 @@ st.markdown("""
         font-family: 'Inter', sans-serif;
     }
     
-    /* Main Background */
+    /* Theme-aware Background */
     .stApp {
-        background-color: #F8FAFC;
+        background-color: var(--background-color);
+        color: var(--text-color);
     }
     
-    /* Card design */
+    /* Force text and label visibility globally across themes */
+    h1, h2, h3, h4, h5, h6, label, span, p, li, b {
+        color: var(--text-color) !important;
+    }
+    
+    /* Theme-aware Card design */
     .metric-box {
-        background-color: white;
+        background-color: var(--secondary-background-color);
+        color: var(--text-color);
         border-radius: 12px;
         padding: 24px;
         box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-        border: 1px solid #E2E8F0;
+        border: 1px solid var(--secondary-background-color);
         margin-bottom: 20px;
     }
     
-    /* Gradient prediction card */
+    .metric-box h3, .metric-box h4, .metric-box li, .metric-box b, .metric-box p {
+        color: var(--text-color) !important;
+    }
+    
+    /* Theme-aware Status bar */
+    .status-bar {
+        background-color: var(--secondary-background-color);
+        border: 1px solid var(--secondary-background-color);
+        border-radius: 12px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 25px;
+    }
+    
+    /* Gradient prediction card (keeps white text on colored gradient) */
     .prediction-box {
         background: linear-gradient(135deg, #4F46E5 0%, #3730A3 100%);
-        color: white;
         border-radius: 16px;
         padding: 32px;
         box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
         text-align: center;
         margin-top: 20px;
         margin-bottom: 25px;
+    }
+    
+    .prediction-box, 
+    .prediction-box h1, 
+    .prediction-box h2, 
+    .prediction-box h3, 
+    .prediction-box h4, 
+    .prediction-box h5, 
+    .prediction-box h6, 
+    .prediction-box div, 
+    .prediction-box span, 
+    .prediction-box p, 
+    .prediction-box b {
+        color: white !important;
     }
     
     .prediction-title {
@@ -77,14 +113,15 @@ st.markdown("""
     .section-title {
         font-size: 1.8rem;
         font-weight: 700;
-        color: #1E293B;
+        color: var(--text-color) !important;
         margin-bottom: 20px;
-        border-bottom: 2px solid #E2E8F0;
+        border-bottom: 2px solid var(--secondary-background-color);
         padding-bottom: 8px;
     }
     
     .subtitle {
-        color: #64748B;
+        color: var(--text-color);
+        opacity: 0.7;
         font-size: 1.05rem;
         margin-bottom: 30px;
     }
@@ -92,7 +129,7 @@ st.markdown("""
     /* Custom buttons */
     div.stButton > button:first-child {
         background-color: #4F46E5;
-        color: white;
+        color: white !important;
         border-radius: 8px;
         padding: 10px 24px;
         font-weight: 600;
@@ -215,12 +252,12 @@ def main():
         status_text = "Trained & Active" if is_model_trained() else "Untrained (Run train_model.py)"
         
         st.markdown(f"""
-        <div style='background-color: white; border-radius: 12px; padding: 20px; border: 1px solid #E2E8F0; display: flex; align-items: center; justify-content: space-between;'>
+        <div class='status-bar'>
             <div>
-                <span style='font-weight: 600; color: #1E293B;'>ML Engine Status:</span>
+                <span style='font-weight: 600;'>ML Engine Status:</span>
                 <span style='color: {status_color}; font-weight: 700; margin-left: 8px;'>● {status_text}</span>
             </div>
-            <div style='font-size: 0.9rem; color: #64748B;'>
+            <div style='font-size: 0.9rem; opacity: 0.8;'>
                 Current Directory: <code>c:\\Users\\Dell\\OneDrive\\Desktop\\python_internship_project3</code>
             </div>
         </div>
