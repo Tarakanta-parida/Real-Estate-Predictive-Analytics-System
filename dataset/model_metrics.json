@@ -1,0 +1,50 @@
+[
+    {
+        "Model":"Linear Regression",
+        "Train CV R2":"0.7642 \u00b1 0.0402",
+        "Test R2":0.7966291913,
+        "Test MAE":4609940.870396602,
+        "Test MSE":44730171600613.15625,
+        "Test RMSE":6688061.8717692168
+    },
+    {
+        "Model":"Ridge Regression",
+        "Train CV R2":"0.7753 \u00b1 0.0419",
+        "Test R2":0.8209736597,
+        "Test MAE":4481100.5498152021,
+        "Test MSE":39375753945088.7890625,
+        "Test RMSE":6275010.274500655
+    },
+    {
+        "Model":"Lasso Regression",
+        "Train CV R2":"0.7643 \u00b1 0.0410",
+        "Test R2":0.7985025826,
+        "Test MAE":4573664.9106541015,
+        "Test MSE":44318130593433.7890625,
+        "Test RMSE":6657186.3871634081
+    },
+    {
+        "Model":"Decision Tree Regressor",
+        "Train CV R2":"0.6049 \u00b1 0.1109",
+        "Test R2":0.61418421,
+        "Test MAE":5597266.6360453274,
+        "Test MSE":84857834832586.328125,
+        "Test RMSE":9211831.2420813665
+    },
+    {
+        "Model":"Random Forest Regressor",
+        "Train CV R2":"0.7274 \u00b1 0.0534",
+        "Test R2":0.8164251385,
+        "Test MAE":4313047.1828333419,
+        "Test MSE":40376173510294.1796875,
+        "Test RMSE":6354224.8551884107
+    },
+    {
+        "Model":"Tuned Random Forest Regressor",
+        "Train CV R2":"0.7533",
+        "Test R2":0.8112818413,
+        "Test MAE":4667483.4255165486,
+        "Test MSE":41507410425464.6484375,
+        "Test RMSE":6442624.4982510544
+    }
+]
